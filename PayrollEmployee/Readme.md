@@ -1,34 +1,54 @@
-Problem Statement
-Design a simple Employee payroll system using inheritance, constructor chaining with super, method overriding, and
-method overloading.
+# Employee Payroll System
 
-Requirements:
-Create a base class Employee with:
+## Problem Statement
+Design a simple Employee payroll system using inheritance, constructor chaining with super, method overriding, and method overloading.
 
-private fields: name (String), id (int), baseSalary (double)
-A constructor that takes all 3 fields
-A method calculatePay() that returns the baseSalary
-A method displayInfo() that prints name, id, and calculated pay
-Create a subclass FullTimeEmployee extends Employee with:
+---
 
-An extra field: bonus (double)
-A constructor that takes name, id, baseSalary, and bonus (use super() to call parent constructor)
-Override calculatePay() to return baseSalary + bonus
-Create a subclass PartTimeEmployee extends Employee with:
+## 📋 Requirements & Implementation
 
-Extra fields: hoursWorked (int), hourlyRate (double)
-A constructor that takes name, id, hoursWorked, and hourlyRate (pass 0 as baseSalary to super)
-Override calculatePay() to return hoursWorked * hourlyRate
-In FullTimeEmployee, overload displayInfo():
+### 1. Base Class: `Employee`
+We define the core structure for all employees:
+* **Private Fields**: `name` (String), `id` (int), `baseSalary` (double).
+* **Constructor**: Initializes all three fields.
+* **`calculatePay()`**: Returns the `baseSalary`.
+* **`displayInfo()`**: Prints the name, ID, and the result of `calculatePay()`.
 
-displayInfo() — no args, prints everything including bonus
-displayInfo(boolean showBonus) — if false, hides the bonus line
-In a Main class:
+### 2. Subclass: `FullTimeEmployee`
+Extends `Employee` to include:
+* **Extra Field**: `bonus` (double).
+* **Constructor**: Uses `super()` for parent fields and initializes `bonus`.
+* **Method Overriding**: `calculatePay()` returns `baseSalary + bonus`.
+* **Method Overloading**: 
+    * `displayInfo()`: Prints all details.
+    * `displayInfo(boolean showBonus)`: Toggles the visibility of the bonus line.
 
-Create one FullTimeEmployee and one PartTimeEmployee
-Store both in an Employee[] array
-Loop through the array and call displayInfo() — observe polymorphism!
-Expected Output:
+### 3. Subclass: `PartTimeEmployee`
+Extends `Employee` to include:
+* **Extra Fields**: `hoursWorked` (int), `hourlyRate` (double).
+* **Constructor**: Passes `0` as `baseSalary` to the `super` constructor.
+* **Method Overriding**: `calculatePay()` returns `hoursWorked * hourlyRate`.
+
+---
+
+## 💻 Technical Concepts Used
+
+| Concept | Application in our Code |
+| :--- | :--- |
+| **Inheritance** | `FullTimeEmployee` and `PartTimeEmployee` inheriting from `Employee`. |
+| **Constructor Chaining** | Using `super(name, id, baseSalary)` to initialize parent attributes. |
+| **Method Overriding** | Customizing `calculatePay()` logic for different employee types. |
+| **Method Overloading** | Providing two versions of `displayInfo()` in `FullTimeEmployee`. |
+| **Polymorphism** | Storing different objects in an `Employee[]` array and calling shared methods. |
+
+---
+
+## 🚀 Execution & Expected Output
+
+In our `Main` class, we instantiate one employee of each type, store them in a common array, and iterate through them to display their details.
+
+**Output:**
+```text
 === Employee Details ===
 Name: Rahul | ID: 101
 Total Pay: 85000.0
