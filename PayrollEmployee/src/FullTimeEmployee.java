@@ -9,7 +9,7 @@ public class FullTimeEmployee extends Employee {
 
     @Override
     public double calculatePay() {
-        return calculatePay() + bonus;
+        return super.calculatePay() + bonus;
     }
 
     @Override
