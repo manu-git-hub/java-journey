@@ -12,5 +12,16 @@ public class FullTimeEmployee extends Employee {
         return calculatePay() + bonus;
     }
 
-   
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Bonus: " + bonus);
+    }
+
+    public void displayInfo(boolean showBonus) {
+        super.displayInfo();
+        if (showBonus) {
+            System.out.println("Bonus: " + bonus);
+        }
+    }
 }
